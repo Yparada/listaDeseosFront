@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <form class="item" #f='ngForm' (ngSubmit) = 'f.form.valid && updateDeseo()'>
+      <legend>Actualiza tu deseo</legend>
+      <div class="mb-3">
+        <label  class="form-label">Selecciona el producto con el cual ahora deseas contar en tu lista</label>
+        <select class="form-select" name="nombreI" id="nombreI" [(ngModel)]="prodSeleccionado.idProductos"  required>
+          <option *ngFor="let producto of listProductos" value="{{producto.idProductos}}">{{producto.nombre}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="!f.valid || prodSeleccionado.idProductos==0">Actualizar</button>
+
+  </form>
+</div>
